@@ -84,8 +84,8 @@
         let newLink = document.createElement("a");
         newLink.download = sFileName;
 
-        if (window.webkitURL != null) {
-            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        if (window.URL != null) {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
         }
         else {
             newLink.href = window.URL.createObjectURL(textToBLOB);
