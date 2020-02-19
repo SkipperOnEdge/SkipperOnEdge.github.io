@@ -8,7 +8,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password], input[type=email]{
+input[type=text], input[type=password], input[type=email], input[type=teamid]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -76,16 +76,35 @@ span.psw {
 </style>
 </head>
 <body>
-
   <form action="action_page.php" method="post">
     <div class="container">
-      <h3 style="text-align:center"> Add Members</h3>
+      <h3 style="text-align:center">Add Members</h3>
 
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="eml"><b>E-mail</b></label>
       <input type="email" placeholder="Enter E-mail" name="eml" required>
+
+      <button type="submit">Confirm</button>
+    </div>
+  </form>
+
+  <form action="action_page.php" method="post">
+    <div class="container">
+      <h3 style="text-align:center">Change Details</h3>
+
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Change Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Change Password" name="psw" required>
+
+      <label for="eml"><b>E-mail</b></label>
+      <input type="email" placeholder="Change E-mail" name="eml" required>
+
+      <label for="tid"><b>Team ID</b></label>
+      <input type="teamid" placeholder="Change Team ID" name="tid" required>
 
       <button type="submit">Confirm</button>
     </div>
