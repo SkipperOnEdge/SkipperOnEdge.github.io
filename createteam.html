@@ -1,5 +1,5 @@
-﻿
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -78,22 +78,21 @@ span.psw {
 <body>
 
   <form action="action_page.php" method="post">
+    <div class="imgcontainer">
+
+    </div>
+
     <div class="container">
+      <label for="email"><b>E-mail</b></label>
+      <input type="text" placeholder="Enter E-mail" name="email" required>
+
       <label for="tname"><b>Team Name</b></label>
       <input type="text" placeholder="Enter Team Name" name="tname" required>
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="createbtn" onclick="window.location.href = 'createteam.html';">Create Account</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <button type="submit">Create</button>
     </div>
   </form>
 </body>

@@ -8,7 +8,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -79,21 +79,15 @@ span.psw {
 
   <form action="action_page.php" method="post">
     <div class="container">
-      <label for="tname"><b>Team Name</b></label>
-      <input type="text" placeholder="Enter Team Name" name="tname" required>
+      <h3 style="text-align:center"> Add Members</h3>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
 
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+      <label for="eml"><b>E-mail</b></label>
+      <input type="email" placeholder="Enter E-mail" name="eml" required>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="createbtn" onclick="window.location.href = 'createteam.html';">Create Account</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <button type="submit">Confirm</button>
     </div>
   </form>
 </body>
