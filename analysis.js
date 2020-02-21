@@ -1,3 +1,16 @@
+const GAME_ID_LENGTH = 16; // (((SET THIS)))
+
+
+function generateGameId(){
+	id = ""
+	chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+	for(var i = 0; i < GAME_ID_LENGTH; i++){
+	id += chars[Math.floor(Math.random()*chars.length)]
+	}
+	return id
+} 
+
+
 class Robot { // Register robot to game w/ this class
 	constructor(teamNumber, matchNumber, alliance, games=null) {
 		this.teamNumber = teamNumber;
