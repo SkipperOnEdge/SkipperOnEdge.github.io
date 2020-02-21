@@ -1,9 +1,10 @@
 const GAME_ID_LENGTH = 16; // (((SET THIS)))
+const CATEGORIES = ["auto", "pointScoring", "movement", "penalties", "endGame"] // (((SET THIS)))
 
 
 function generateGameId(){
 	id = ""
-	chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"
+	chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%^&*()"
 	for(var i = 0; i < GAME_ID_LENGTH; i++){
 	id += chars[Math.floor(Math.random()*chars.length)]
 	}
@@ -33,7 +34,7 @@ class DataPoint { // Use this to add game stats to class
 		} else {
 			this.name = null;
 		}
-		this.category = category; // => auto, pointScoring, movement, penalties, endGame
+		this.category = category; // => auto, pointScoring, movement, penalties, endGame (((WRITE CATEGORIES)))
 		this.given = !!data; // If user supplies stat
 	}
 }
@@ -48,6 +49,7 @@ class Game {
 	addAllDataPoints(crossedPointLine, scoredLow, scoredHex, scoredInner, 
 		controlRotation, controlPosition, timeUnderTrench, timeCrossCentral,
 		timeDefend, fouls, techFouls, yellowCard, redCard, climb, inBalance, parked){
+		this.dataPoints = arguments;
 		this.crossedPointLine = crossedPointLine;
 		this.scoredLow = scoredLow;
 		this.scoredHex = scoredHex;
@@ -69,8 +71,16 @@ class Game {
 
 	addDataPoint(dataPoint, name=dataPoint.name) {
 		if(!name) {
-			throw new Error("Must supply name to add data point to game.")
+			return null;
 		}
+
 		this[name] = dataPoint;
+		return this[name]
 	}
+
+	getDataPointsByCategory(category) {
+		if(CATEGORIES.indexOf(category) === -1) return null;
+		return this.stats.filter(x => x.category === category)
+	}
+
 }
