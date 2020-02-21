@@ -11,6 +11,7 @@ function generateGameId(){
 	return id
 } 
 
+// ST DEV ON VARIABLE
 
 class Robot { // Register robot to game w/ this class
 	constructor(teamNumber, matchNumber, alliance, games=null) {
@@ -82,5 +83,15 @@ class Game {
 		if(CATEGORIES.indexOf(category) === -1) return null;
 		return this.stats.filter(x => x.category === category)
 	}
+
+	getTotalPoints() {
+		let pointMap = {"low": 1 , "hex": 2, "inner": 4} // (((SET THIS)))
+		let points;
+		points += this.scoredLow*pointMap["low"]
+		points += this.scoredHex*pointMap["hex"]
+		points += this.scoredInner*pointMap["inner"]
+		return points
+	}
+
 
 }
