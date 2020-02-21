@@ -16,6 +16,22 @@ function getGame(gameId) {
 	return undefined;
 }
 
+function getAverageByDataPoint(name, games) {
+	var sum;
+	var length = games.length;
+	games.forEach(function(game){
+		if(typeof game[name] !== "number"){
+			return null;
+		} else if ((game[name] === undefined) || (game[name] === null)){
+			length--;
+		} else {
+			sum += game[name];
+		}
+	});
+	sum /= length;
+	return sum;
+}
+
 
 class Robot { // Register robot to game w/ this class
 	constructor(teamNumber, matchNumber, alliance, games=null) {
@@ -30,7 +46,7 @@ class Robot { // Register robot to game w/ this class
 	}
 
 	getAllGames() {
-		var games = [];
+		let games = [];
 		this.games.forEach(id => games.push(getGame(id)));
 		return games;
 	}
