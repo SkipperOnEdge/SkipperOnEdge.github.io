@@ -11,7 +11,11 @@ function generateGameId(){
 	return id
 } 
 
-// ST DEV ON VARIABLE
+function getGame(gameId) {
+	// (((SET THIS)))
+	return undefined;
+}
+
 
 class Robot { // Register robot to game w/ this class
 	constructor(teamNumber, matchNumber, alliance, games=null) {
@@ -23,6 +27,12 @@ class Robot { // Register robot to game w/ this class
 
 	addGame(gameId) {
 		this.games.push(gameId)
+	}
+
+	getAllGames() {
+		var games = [];
+		this.games.forEach(id => games.push(getGame(id)));
+		return games;
 	}
 
 }
